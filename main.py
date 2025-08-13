@@ -1,4 +1,4 @@
-  # app.py
+# app.py
 import streamlit as st
 import random
 from textwrap import dedent
@@ -215,7 +215,7 @@ STYLE_DB = {
         ],
         "hashtags": ["#스트릿","#테크웨어","#과감"]
     },
-    "ESFP": 
+    "ESFP": {
         "title": "글리터 트렌드 ✨",
         "desc": "패턴·광택·큐빅으로 스팟라이트 ON!",
         "palette": ["#F72585","#B5179E","#7209B7","#3A0CA3","#4CC9F0"],
@@ -229,3 +229,225 @@ STYLE_DB = {
             "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200"
         ],
         "hashtags": ["#반짝반짝","#포인트","#파티룩"]
+    },
+    "ENFP": {
+        "title": "컬러 팝 🌈",
+        "desc": "컬러 플레이! 오버사이즈 셔츠+데님으로 자유분방하게.",
+        "palette": ["#FF6B6B","#FFD166","#06D6A0","#118AB2","#073B4C"],
+        "tops": ["오버 셔츠","크롭 후디"],
+        "bottoms": ["스트레이트 데님","버뮤다"],
+        "shoes": ["플랫폼 스니커","클로그"],
+        "acc": ["버킷햇","유머러스 양말"],
+        "images": [
+            "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200",
+            "https://images.unsplash.com/photo-1503342394122-34b5829731d4?q=80&w=1200",
+            "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200"
+        ],
+        "hashtags": ["#컬러조합","#룩실험","#자유분방"]
+    },
+    "ENTP": {
+        "title": "실험적 믹스매치 🎭",
+        "desc": "패턴+소재+실루엣을 장난스럽게 섞기! 대담할수록 재밌다.",
+        "palette": ["#0D1321","#FFB703","#FB8500","#8ECAE6","#219EBC"],
+        "tops": ["패턴 셔츠","베스트 레이어드"],
+        "bottoms": ["체크 팬츠","트랙 팬츠"],
+        "shoes": ["하이톱","첼시"],
+        "acc": ["스테이트먼트 글라스","볼드 링"],
+        "images": [
+            "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?q=80&w=1200",
+            "https://images.unsplash.com/photo-1503342394122-34b5829731d4?q=80&w=1200",
+            "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200"
+        ],
+        "hashtags": ["#믹스매치","#아이러니","#대담"]
+    },
+    "ESTJ": {
+        "title": "포멀 퍼포머 💼",
+        "desc": "셔츠+블레이저+클린 슈즈. 프로젝트가 코디에서도 완성된다.",
+        "palette": ["#0B0C10","#1F2833","#C5C6C7","#66FCF1"],
+        "tops": ["클래식 셔츠","네이비 블레이저"],
+        "bottoms": ["크롭 슬랙스","치노"],
+        "shoes": ["더비","옥스퍼드"],
+        "acc": ["타이/스카프","레더 브리프"],
+        "images": [
+            "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200",
+            "https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200",
+            "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1200"
+        ],
+        "hashtags": ["#비즈니스캐주얼","#정갈","#신뢰감"]
+    },
+    "ESFJ": {
+        "title": "스윗 프렌들리 🫶",
+        "desc": "밝은 뉴트럴, 부드러운 실루엣. 모두가 좋아하는 데일리.",
+        "palette": ["#FFF3E2","#FFE7CC","#FFC6C6","#D7E9F7"],
+        "tops": ["라이트 가디건","러플 블라우스"],
+        "bottoms": ["에이라인 스커트","라이트 데님"],
+        "shoes": ["플랫","로우 힐"],
+        "acc": ["진주/골드 포인트","미니 숄더백"],
+        "images": [
+            "https://images.unsplash.com/photo-1483985988355-763728e1935a?q=80&w=1200",
+            "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200",
+            "https://images.unsplash.com/photo-1520975682031-b46f52b8505a?q=80&w=1200"
+        ],
+        "hashtags": ["#라이트톤","#따뜻한매너","#착붙데일리"]
+    },
+    "ENFJ": {
+        "title": "우아 카리스마 💃",
+        "desc": "드레이프 실루엣과 심플 액세서리로 리더의 기품 완성.",
+        "palette": ["#1C1C1E","#3A3A3C","#FFD6A5","#FAEDCD"],
+        "tops": ["랩 원피스","실키 셔츠"],
+        "bottoms": ["맥시 스커트","와이드슬랙스"],
+        "shoes": ["뾰족토 힐","슬링백"],
+        "acc": ["슬림 벨트","미니멀 이어링"],
+        "images": [
+            "https://images.unsplash.com/photo-1520975842205-52b3e25f6b09?q=80&w=1200",
+            "https://images.unsplash.com/photo-1516826957135-700dedea698c?q=80&w=1200",
+            "https://images.unsplash.com/photo-1503342394122-34b5829731d4?q=80&w=1200"
+        ],
+        "hashtags": ["#엘레강스","#실루엣","#품격"]
+    },
+    "ENTJ": {
+        "title": "파워 수트 👑",
+        "desc": "스트럭처드 자켓, 블랙/네이비, 날 선 실루엣으로 존재감 MAX.",
+        "palette": ["#0F0F10","#1F2937","#4B5563","#9CA3AF"],
+        "tops": ["스트럭처드 블레이저","터틀넥"],
+        "bottoms": ["슬림 슬랙스","펜슬 스커트"],
+        "shoes": ["포인트 힐/로퍼","첼시"],
+        "acc": ["메탈 워치","레더 토트"],
+        "images": [
+            "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1200",
+            "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200",
+            "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?q=80&w=1200"
+        ],
+        "hashtags": ["#파워드레싱","#리더십","#선명한실루엣"]
+    },
+}
+
+# ============ 유틸 ============
+def chips(lst): 
+    return " ".join([f'<span class="chip">{x}</span>' for x in lst])
+
+def palette_html(colors):
+    return "".join([f'<span class="palette-dot" style="background:{c}"></span>' for c in colors])
+
+def surprise_mbti():
+    return random.choice(MBTI)
+
+def make_outfit(mbti, mood):
+    base = STYLE_DB[mbti]
+    t = random.choice(base["tops"])
+    b = random.choice(base["bottoms"])
+    s = random.choice(base["shoes"])
+    a = random.choice(base["acc"])
+    tweak = {
+        "데이트": "실루엣은 부드럽게, 광택 소품 하나로 포인트 💖",
+        "면접/발표": "컬러는 절제, 소재는 고급스러운 텍스처로 신뢰감 🧠",
+        "페스티벌": "손이 자유로운 크로스백 + 스테이트먼트 액세서리 🎉",
+        "주말카페": "편안한 핏 + 낮은 굽, 상의는 레이어드로 볼륨 ☕",
+    }[mood]
+    return f"- 상의: **{t}**\n- 하의: **{b}**\n- 신발: **{s}**\n- 액세서리: **{a}**\n- 무드 팁: {tweak}"
+
+# ============ 사이드바 ============
+with st.sidebar:
+    st.markdown("## 🎛️ 컨트롤")
+    pick_mode = st.radio("입력 방식", ["드롭다운 선택","직접 입력","랜덤 추천"], horizontal=True)
+    if pick_mode == "드롭다운 선택":
+        user_mbti = st.selectbox("MBTI를 선택하세요", MBTI, index=MBTI.index("ENFP"))
+    elif pick_mode == "직접 입력":
+        user_mbti = st.text_input("MBTI 4글자 (예: INFP)").upper()
+    else:
+        user_mbti = surprise_mbti()
+        st.info(f"🎲 오늘의 랜덤 MBTI: **{user_mbti}**")
+
+    mood = st.select_slider("무드 선택", options=["주말카페","데이트","면접/발표","페스티벌"], value="주말카페")
+    show_confetti = st.toggle("화려한 효과 켜기 (🎈/❄️)", value=True)
+    if st.button("🎲 Surprise me (다른 MBTI 랜덤)"):
+        user_mbti = surprise_mbti()
+        st.toast(f"랜덤으로 {user_mbti} 선택!", icon="✨")
+
+# ============ 헤더 ============
+st.markdown('<div class="gradient-title">MBTI 패션 추천</div>', unsafe_allow_html=True)
+st.markdown('<p class="subtitle">나의 성향으로 찾는 착붙 코디 — 팔레트, 무드별 코디, 이미지 무드보드까지 ✨</p>', unsafe_allow_html=True)
+st.write("")
+
+# ============ 본문 렌더 ============
+valid = user_mbti in STYLE_DB
+
+if not valid:
+    st.warning("올바른 MBTI를 선택/입력해 주세요! 예) INFP, ESTJ, ENFP ...")
+else:
+    data = STYLE_DB[user_mbti]
+
+    # 효과
+    if show_confetti:
+        st.balloons() if user_mbti in ["ENFP","ESFP","ENTP"] else st.snow()
+
+    # 상단 카드
+    col1, col2 = st.columns([1.2, 1])
+    with col1:
+        st.markdown(f"""
+        <div class="glass">
+          <h2 style="margin-top:0">{user_mbti} · {data['title']}</h2>
+          <p style="font-size:16px; margin-top:-6px">{data['desc']}</p>
+          <div style="margin:8px 0">{palette_html(data['palette'])}</div>
+          <div style="margin-top:8px">{chips(data['hashtags'])}</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown("#### 🧩 무드 맞춤 코디")
+        st.markdown(make_outfit(user_mbti, mood))
+
+        st.markdown("#### ✅ 잘 어울려요")
+        st.write("• 상의:", ", ".join(data["tops"]))
+        st.write("• 하의:", ", ".join(data["bottoms"]))
+        st.write("• 신발:", ", ".join(data["shoes"]))
+        st.write("• 액세서리:", ", ".join(data["acc"]))
+
+        st.markdown("#### 🛒 어디서 살까?")
+        st.write("무신사 · W CONCEPT · 29CM · 지그재그 (키워드로 검색: ", ", ".join([h.replace("#","") for h in data["hashtags"]]), ")")
+
+    with col2:
+        st.markdown('<div class="glass"><h4 style="margin-top:0">📸 무드보드</h4>', unsafe_allow_html=True)
+        st.image(data["images"][0], use_container_width=True)
+        c21, c22 = st.columns(2)
+        with c21:
+            st.image(data["images"][1], use_container_width=True)
+        with c22:
+            st.image(data["images"][2], use_container_width=True)
+        st.markdown('</div>', unsafe_allow_html=True)
+
+    # 밑단: 스타일 믹스 실험실
+    st.markdown("### 🧪 스타일 믹스 실험실")
+    colA, colB, colC = st.columns([1,1,1])
+    with colA:
+        alt_mbti = st.selectbox("다른 MBTI와 섞어보기", MBTI, index=MBTI.index("ISTP"))
+    with colB:
+        intensity = st.slider("섞는 강도", 0, 100, 40, help="높을수록 대담한 믹스매치!")
+    with colC:
+        btn_mix = st.button("🎨 믹스 생성")
+
+    if btn_mix:
+        base = STYLE_DB[user_mbti]
+        alt = STYLE_DB[alt_mbti]
+        pick_top = random.choice(base["tops"] + alt["tops"])
+        pick_bottom = random.choice(base["bottoms"] + alt["bottoms"])
+        pick_shoes = random.choice(base["shoes"] + alt["shoes"])
+        tip = "소재/패턴을 1개만 강조" if intensity < 50 else "패턴+컬러 투스텝 과감하게!"
+        st.success(dedent(f"""
+        **{user_mbti} × {alt_mbti} 믹스 결과**
+        - 상의: **{pick_top}**
+        - 하의: **{pick_bottom}**
+        - 신발: **{pick_shoes}**
+        - 팁: {tip}
+        """))
+
+    # 해시태그 복사용
+    st.markdown("### 🔖 해시태그 복사용")
+    tag_text = " ".join(data["hashtags"])
+    st.code(tag_text, language="markdown")
+
+# 푸터
+st.markdown("---")
+st.markdown(
+    '<p style="text-align:center; opacity:0.7">© MBTI Fashionmate • have fun & wear what feels you 💖</p>',
+    unsafe_allow_html=True
+)
