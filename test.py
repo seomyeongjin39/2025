@@ -1,4 +1,5 @@
-import streamlit as st import random
+import streamlit as st 
+import random
 
 지역별 추천 장소 데이터
 
