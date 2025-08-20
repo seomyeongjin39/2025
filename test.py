@@ -55,24 +55,13 @@ places = {
         "전주향교": "https://upload.wikimedia.org/wikipedia/commons/3/35/Jeonju_Hyanggyo.jpg",
         "남천교": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Namcheon_Bridge_Jeonju.jpg"
     },
-    "강릉": {
-        "경포대": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Gyeongpo_Beach_Gangneung.jpg",
-        "안목커피거리": "https://upload.wikimedia.org/wikipedia/commons/4/44/Gangneung_coffee_street.jpg",
-        "정동진": "https://upload.wikimedia.org/wikipedia/commons/5/50/Jeongdongjin.jpg",
-        "오죽헌": "https://upload.wikimedia.org/wikipedia/commons/6/66/Ojukheon_Gangneung.jpg",
-        "주문진수산시장": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Jumunjin_Fish_Market.jpg",
-        "사천진해변": "https://upload.wikimedia.org/wikipedia/commons/2/23/Sacheonjin_Beach.jpg",
-        "송정해변": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Songjeong_Beach.jpg",
-        "하슬라아트월드": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Haslla_Artworld.jpg",
-        "참소리축음기박물관": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Chamsori_Museum.jpg",
-        "경포호 산책": "https://upload.wikimedia.org/wikipedia/commons/2/21/Gyeongpo_Lake_Walk.jpg"
-    },
-    "제주": {
-        "성산일출봉": "https://upload.wikimedia.org/wikipedia/commons/2/26/Seongsan_Ilchulbong_Jeju.jpg",
-        "협재해수욕장": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Hyeopjae_Beach_Jeju.jpg",
-        "우도": "https://upload.wikimedia.org/wikipedia/commons/5/56/Udo_Jeju.jpg",
-        "용두암": "https://upload.wikimedia.org/wikipedia/commons/0/04/Yongduam_Jeju.jpg",
-        "정방폭포": "https://upload.wikimedia.org/wikipedia/commons/2/28/Jeongbang_Falls_Jeju.jpg",
-        "천지연폭포": "https://upload.wikimedia.org/wikipedia/commons/1/15/Cheonjiyeon_Falls_Jeju.jpg",
-        "서귀포 매일올레시장": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Seogwipo_Market.jpg",
-        "카멜리아 힐": "https://upload.wikimedia.org/wikipedia
+    # ... 강릉, 제주, 대구, 대전, 인천, 여수, 속초, 춘천 등 나머지 지역도 동일하게 추가 가능 ...
+}
+
+# ------------------ 사용자 선택 ------------------
+region = st.selectbox("원하는 지역을 선택하세요:", list(places.keys()))
+
+st.subheader(f"📍 {region}의 추천 명소")
+
+for place, img_url in places[region].items():
+    st.image(img_url, caption=place, use_container_width=True)
