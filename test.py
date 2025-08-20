@@ -1,86 +1,34 @@
 import streamlit as st
 import random
 
-st.set_page_config(page_title="데이트 코스 추천", layout="wide")
+# 배경 이미지 설정 (낭만적 이미지)
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-image: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80");
+        background-size: cover;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 st.title("🌸 낭만적인 데이트 코스 추천 🌸")
 st.markdown("날씨, 예산, 시간, 분위기에 맞춰 오늘의 데이트 코스를 추천합니다!")
 
-# ------------------ 지역별 명소 & 이미지 ------------------
+# ------------------ 지역별 명소 ------------------
 places = {
-    "서울": {
-        "한강공원": "https://upload.wikimedia.org/wikipedia/commons/3/38/Han_River_Seoul.jpg",
-        "남산타워": "https://upload.wikimedia.org/wikipedia/commons/2/23/Namsan_Tower_in_Seoul.jpg",
-        "경복궁": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Gyeongbokgung_Geunjeongjeon.jpg",
-        "롯데월드": "https://upload.wikimedia.org/wikipedia/commons/4/48/Lotte_World.jpg",
-        "광화문": "https://upload.wikimedia.org/wikipedia/commons/5/58/Gwanghwamun_Gate.jpg",
-        "북촌한옥마을": "https://upload.wikimedia.org/wikipedia/commons/3/39/Bukchon_Hanok_Village.jpg",
-        "동대문디자인플라자": "https://upload.wikimedia.org/wikipedia/commons/2/20/DDP_Seoul.jpg",
-        "홍대거리": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Hongdae_Street.jpg",
-        "청계천": "https://upload.wikimedia.org/wikipedia/commons/8/81/Cheonggyecheon_Seoul.jpg",
-        "코엑스": "https://upload.wikimedia.org/wikipedia/commons/5/56/Coex_Seoul.jpg"
-    },
-    "광주": {
-        "무등산": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Mudeungsan_Mountain.jpg",
-        "국립아시아문화전당": "https://upload.wikimedia.org/wikipedia/commons/4/4d/ACC_Gwangju.jpg",
-        "펭귄마을": "https://upload.wikimedia.org/wikipedia/commons/6/67/Penguin_Village_Gwangju.jpg",
-        "충장로거리": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Chungjangro_Gwangju.jpg",
-        "광주호수생태원": "https://upload.wikimedia.org/wikipedia/commons/5/59/Gwangju_Lake_Ecology_Park.jpg",
-        "송정떡갈비거리": "https://upload.wikimedia.org/wikipedia/commons/7/70/Songjeong_Tteokgalbi.jpg",
-        "양림동역사문화마을": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Yangnimdong_Culture_Village.jpg",
-        "광주비엔날레관": "https://upload.wikimedia.org/wikipedia/commons/2/28/Gwangju_Biennale_Hall.jpg",
-        "사직공원": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Sajik_Park_Gwangju.jpg",
-        "광주FC월드컵경기장": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Gwangju_Worldcup_Stadium.jpg"
-    },
-    "강릉": {
-        "경포대": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Gyeongpo_Beach_Gangneung.jpg",
-        "안목커피거리": "https://upload.wikimedia.org/wikipedia/commons/4/44/Gangneung_coffee_street.jpg",
-        "정동진": "https://upload.wikimedia.org/wikipedia/commons/5/50/Jeongdongjin.jpg",
-        "오죽헌": "https://upload.wikimedia.org/wikipedia/commons/6/66/Ojukheon_Gangneung.jpg",
-        "주문진수산시장": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Jumunjin_Fish_Market.jpg",
-        "사천진해변": "https://upload.wikimedia.org/wikipedia/commons/2/23/Sacheonjin_Beach.jpg",
-        "송정해변": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Songjeong_Beach.jpg",
-        "하슬라아트월드": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Haslla_Artworld.jpg",
-        "참소리축음기박물관": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Chamsori_Museum.jpg",
-        "경포호 산책": "https://upload.wikimedia.org/wikipedia/commons/2/21/Gyeongpo_Lake_Walk.jpg"
-    },
-    "대전": {
-        "엑스포과학공원": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Daejeon_Expo_Park.jpg",
-        "한밭수목원": "https://upload.wikimedia.org/wikipedia/commons/4/45/Hanbat_Arboretum.jpg",
-        "유성온천": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Yuseong_Hot_Spring.jpg",
-        "대전시청": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Daejeon_City_Hall.jpg",
-        "보문산": "https://upload.wikimedia.org/wikipedia/commons/1/12/Bomunsan_Daejeon.jpg",
-        "대전오월드": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Daejeon_O-World.jpg",
-        "갑천공원": "https://upload.wikimedia.org/wikipedia/commons/8/87/Gapcheon_Park_Daejeon.jpg",
-        "대전시립미술관": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Daejeon_Art_Museum.jpg",
-        "중앙시장": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Daejeon_Central_Market.jpg",
-        "카이스트": "https://upload.wikimedia.org/wikipedia/commons/2/2f/KAIST_Campus.jpg"
-    },
-    "부산": {
-        "해운대 해수욕장": "https://upload.wikimedia.org/wikipedia/commons/5/55/Haeundae_Beach_Busan.jpg",
-        "광안리 해수욕장": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Gwangalli_Beach_Busan.jpg",
-        "자갈치시장": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Jagalchi_Market_Busan.jpg",
-        "감천문화마을": "https://upload.wikimedia.org/wikipedia/commons/5/56/Gamcheon_Culture_Village_Busan.jpg",
-        "태종대": "https://upload.wikimedia.org/wikipedia/commons/3/34/Taejongdae_Busan.jpg",
-        "송정 해수욕장": "https://upload.wikimedia.org/wikipedia/commons/1/19/Songjeong_Beach_Busan.jpg",
-        "동백섬 누리마루": "https://upload.wikimedia.org/wikipedia/commons/4/41/Dongbaekseom_Nurimaru.jpg",
-        "부산시립미술관": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Busan_Museum_of_Art.jpg",
-        "서면 번화가": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Seomyeon_Street_Busan.jpg",
-        "영도대교 야경": "https://upload.wikimedia.org/wikipedia/commons/4/44/Yeongdo_Bridge_Busan.jpg"
-    },
-    "제주": {
-        "성산일출봉": "https://upload.wikimedia.org/wikipedia/commons/2/26/Seongsan_Ilchulbong_Jeju.jpg",
-        "협재해수욕장": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Hyeopjae_Beach_Jeju.jpg",
-        "우도": "https://upload.wikimedia.org/wikipedia/commons/5/56/Udo_Jeju.jpg",
-        "용두암": "https://upload.wikimedia.org/wikipedia/commons/0/04/Yongduam_Jeju.jpg",
-        "정방폭포": "https://upload.wikimedia.org/wikipedia/commons/2/28/Jeongbang_Falls_Jeju.jpg",
-        "천지연폭포": "https://upload.wikimedia.org/wikipedia/commons/1/15/Cheonjiyeon_Falls_Jeju.jpg",
-        "서귀포 매일올레시장": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Seogwipo_Market.jpg",
-        "카멜리아 힐": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Camellia_Hill_Jeju.jpg",
-        "한라산": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Hallasan_Jeju.jpg",
-        "성읍민속마을": "https://upload.wikimedia.org/wikipedia/commons/2/23/Seongeup_Folk_Village.jpg"
-    }
-    # 전주, 대구, 인천, 여수, 속초, 춘천 등도 동일한 방식으로 추가 가능
+    "서울": ["한강공원", "남산타워", "경복궁", "롯데월드", "광화문", "북촌한옥마을", "동대문디자인플라자", "홍대거리", "청계천", "코엑스"],
+    "광주": ["무등산", "국립아시아문화전당", "펭귄마을", "충장로거리", "광주호수생태원", "송정떡갈비거리", "양림동역사문화마을", "광주비엔날레관", "사직공원", "광주FC월드컵경기장"],
+    "강릉": ["경포대", "안목커피거리", "정동진", "오죽헌", "주문진수산시장", "사천진해변", "송정해변", "하슬라아트월드", "참소리축음기박물관", "경포호 산책"],
+    "대전": ["엑스포과학공원", "한밭수목원", "유성온천", "대전시청", "보문산", "대전오월드", "갑천공원", "대전시립미술관", "중앙시장", "카이스트"],
+    "부산": ["해운대 해수욕장", "광안리 해수욕장", "자갈치시장", "감천문화마을", "태종대", "송정해수욕장", "동백섬 누리마루", "부산시립미술관", "서면 번화가", "영도대교 야경"],
+    "제주": ["성산일출봉", "협재해수욕장", "우도", "용두암", "정방폭포", "천지연폭포", "서귀포 매일올레시장", "카멜리아힐", "한라산", "성읍민속마을"],
+    "전주": ["전주한옥마을", "경기전", "남부시장 청년몰", "덕진공원", "한벽당", "오목대", "전주수목원", "객사길 카페거리", "전주향교", "남천교"],
+    "대구": ["동성로", "팔공산", "수성못", "서문시장", "김광석 거리", "계명대", "이월드", "대구예술발전소", "앞산공원", "근대골목"],
+    "인천": ["월미도", "차이나타운", "송도 센트럴파크", "인천대교 전망대", "송월동동화마을", "강화도 마니산", "인천 차이나타운", "월미공원", "동춘동거리", "인천항"],
+    "여수": ["여수해상케이블카", "향일암", "오동도", "돌산대교", "여수엑스포", "거북선대교", "이순신광장", "여수수산시장", "종포해양공원", "낭만포차거리"]
 }
 
 # ------------------ 사용자 입력 ------------------
@@ -93,12 +41,11 @@ mood = st.select_slider("분위기 선택:", options=["낭만", "재미", "조�
 st.subheader(f"📍 {region} 추천 장소")
 
 # ------------------ 랜덤 추천 ------------------
-all_places = list(places[region].items())
+all_places = places[region]
 if time_available < len(all_places):
     selected_places = random.sample(all_places, time_available)
 else:
     selected_places = all_places
 
-for place, img_url in selected_places:
-    st.image(img_url, caption=f"{place} ({budget}, {weather}, {mood})", use_container_width=True)
-
+for place in selected_places:
+    st.write(f"- {place} (예산: {budget}, 날씨: {weather}, 분위기: {mood})")
